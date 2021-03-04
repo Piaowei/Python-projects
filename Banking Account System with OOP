@@ -1,0 +1,37 @@
+class Bank(User):
+    # self.amount = amount
+    # self.balance = 0
+
+    def __init__(self, name, age, gend):
+        super().__init__(name,age,gend)
+
+        self.balance = 0
+
+    def deposit(self, amount):
+        self.amount = amount
+        self.balance = self.balance + self.amount
+        print("balance after deposit",self.balance)
+
+    def withdraw(self, amount):
+        self.amount = amount
+
+        if self.amount > self.balance:
+            print("Account Insuffiecient")
+
+        else:
+            self.balance = self.balance - self.amount
+            print("Account balamce is updated", self.balance)
+            print("")
+
+    def view_balance(self):
+        self.show_details()
+        print("Account details",self.balance)
+
+if __name__ == '__main__':
+
+
+    user = Bank("koj", "22", "male")
+    user.deposit(500)
+    user.deposit((600))
+    user.withdraw(154)
+    user.view_balance()
