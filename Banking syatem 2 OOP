@@ -41,11 +41,15 @@ class Bank(User):
         return "Your current balance is-", self.balance
 
 
-n = int(input("diposit amount : "))
-w = int(input("withdraw namount : "))
+if __name__ == '__main__':
+    try:
+        n = int(input("diposit amount : "))
+        w = int(input("withdraw namount : "))
 
-tonmoy = Bank("Tonmoy", 22, "male")
+        tonmoy = Bank("Tonmoy", 22, "male")
 
-tonmoy.diposit(n)
-tonmoy.withdraw(w)
-print(tonmoy.final_result())
+        tonmoy.diposit(n)
+        tonmoy.withdraw(w)
+        print(tonmoy.final_result())
+    except ValueError:
+        print("You did't input any  value. Must input atleast 0")
