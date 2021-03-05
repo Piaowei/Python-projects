@@ -1,0 +1,51 @@
+class User():
+    def __init__(self, name, age, gender):
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def show_details(self):
+        print("")
+        print("User name :", self.name)
+        print("User age:", self.age)
+        print("User gender :", self.gender)
+
+
+class Bank(User):
+    def __init__(self, name, age, gender):
+        super().__init__(name, age, gender)
+        self.balance = 0
+
+    def diposit(self, amount):
+        self.amount = amount
+        self.balance = self.balance + self.amount
+        return "Amount after diposit", self.balance
+
+    def withdraw(self, amount):
+        self.amount = amount
+
+        if self.amount==0:
+            return "No withdraw amount"
+
+        elif self.amount > self.balance:
+            return "Insufficient Balance for withdraw"
+        else:
+            self.balance = self.balance - self.amount
+            return "Withdraw done"
+
+
+    def final_result(self):
+
+        self.show_details()
+        print(tonmoy.withdraw(w))
+        return "Your current balance is-", self.balance
+
+
+n = int(input("diposit amount : "))
+w = int(input("withdraw namount : "))
+
+tonmoy = Bank("Tonmoy", 22, "male")
+
+tonmoy.diposit(n)
+tonmoy.withdraw(w)
+print(tonmoy.final_result())
